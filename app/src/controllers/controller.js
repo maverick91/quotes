@@ -1,5 +1,5 @@
 app.controller("appController",['$scope','$http','$location','$rootScope',function($scope,$http,$location,$rootScope){
-   console.log("here");
+  // console.log("here");
    var config = {
               'Content-Type':'text/plain'
             }
