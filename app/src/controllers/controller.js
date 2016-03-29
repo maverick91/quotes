@@ -24,5 +24,5 @@ app.controller("homeCtrl",[
     }]);
     
     
-    //o global variable
+    //no global variable
     //ng-messages validation
