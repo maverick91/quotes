@@ -20,6 +20,18 @@ app.controller("homeCtrl",[
         };           
     }]);
     
+app.controller("indexCtrl",['$scope','$interval',function($scope,$interval){
+  // var timer = setInterval(function() {
+  //   updateTime();
+  //     $scope.$apply();
+  // }, 1000);
+  var updateTime=function(){
+   $scope.time=new Date();
+  };
+  $interval(function(){updateTime();},1000);
+
+    updateTime();
+}]);    
     
     //no global variable
     //ng-messages validation
