@@ -1,26 +1,23 @@
-app.controller("appController",['$scope','$http','$location','$rootScope',function($scope,$http,$location,$rootScope){
+app.controller("appController",['$scope','$http','$state','$rootScope',function($scope,$http,$state,$rootScope){
   // console.log("here");
    var config = {
               'Content-Type':'text/plain'
-            }
+            };
 
  $scope.authenticate= function(user) {
-//         $http.post("http://localhost:8181/",$scope.user,config).then(function(response) {
-      
-//    });
-$rootScope.loggedInUser=$scope.user;
-    $location.path("/home");
-    }
+
+$state.go('home');
+    };
 }]);
 
 app.controller("homeCtrl",[
-    '$scope','$http','$location',function($scope,$http,$location){
+    '$scope','$http','$state',function($scope,$http,$state){
         
         $scope.categories=["inspirational","love","family","life","war","patriotism"];
         $scope.selectedCategory=function(category) {
-            alert(category);
-            $location.path("/quote");
-        }
+         //   alert(category);
+           $state.go('quote');
+        };           
     }]);
     
     
