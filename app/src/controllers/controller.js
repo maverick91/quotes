@@ -16,6 +16,9 @@ app.controller("homeCtrl",[
         $scope.categories=["inspirational","love","family","life","war","patriotism"];
         $scope.selectedCategory=function(category) {
          //   alert(category);
+         $http.get('/quotes').success(function(data){
+           alert(data.hello);
+         });
            $state.go('quote');
         };           
     }]);
@@ -33,5 +36,16 @@ app.controller("indexCtrl",['$scope','$interval',function($scope,$interval){
     updateTime();
 }]);    
     
-    //no global variable
-    //ng-messages validation
+    // no global variable
+    // ng-messages validation
+    
+    backendMock.run(function($httpBackend){
+      $httpBackend.whenGET('views/login.html').passThrough();
+      $httpBackend.whenGET('views/home.html').passThrough();
+      $httpBackend.whenGET('views/quote.html').passThrough();
+
+     $httpBackend.whenGET("/quotes").respond({ hello: 'World' });
+
+      var quotes = {quote:'aint bout how hard you hit'};
+         
+    });

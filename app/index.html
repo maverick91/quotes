@@ -1,6 +1,9 @@
 <!doctype html>
 <html ng-app="app" ng-controller="indexCtrl">
 
+
+  <div>{{time | date:'medium'}}</div><br>
+  <div ui-view></div>
 <script src="scripts/angular.js"></script>
   <script src="scripts/route.js"></script>
   <script src="src/init/init.js"></script>
@@ -8,6 +11,5 @@
   <script src="src/controllers/controller.js"></script>
   <script src="scripts/angular-messages.js"></script>
   <script src="scripts/angular-ui-router.js"></script>
-  <div>{{time | date:'medium'}}</div><br>
-  <div ui-view></div>
+  <script src="scripts/mocks.js"></script>
 </html>
