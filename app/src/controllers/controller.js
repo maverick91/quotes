@@ -12,14 +12,16 @@ $state.go('home');
 
 app.controller("homeCtrl",[
     '$scope','$http','$state',function($scope,$http,$state){
-        
+              
+           $scope.myquote="data.quote";
         $scope.categories=["inspirational","love","family","life","war","patriotism"];
         $scope.selectedCategory=function(category) {
          //   alert(category);
          $http.get('/quotes').success(function(data){
-           alert(data.hello);
+        
+           $scope.myquote=data.quote;
          });
-           $state.go('quote');
+         
         };           
     }]);
     
@@ -44,8 +46,14 @@ app.controller("indexCtrl",['$scope','$interval',function($scope,$interval){
       $httpBackend.whenGET('views/home.html').passThrough();
       $httpBackend.whenGET('views/quote.html').passThrough();
 
-     $httpBackend.whenGET("/quotes").respond({ hello: 'World' });
+     $httpBackend.whenGET("/quotes").respond({ quote:'aint bout how hard you hit' });
 
       var quotes = {quote:'aint bout how hard you hit'};
          
     });
+    
+    
+  app.controller("quoteCtrl",['$scope','$stateParams',function($scope,$stateParam){
+    
+    alert($stateParam.id);
+  }]);

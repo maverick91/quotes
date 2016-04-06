@@ -1,5 +1,5 @@
 <html>
    <h1>Categories</h1>
-   <article ng-repeat="category in categories" ng-click="selectedCategory(category)"><a >{{category}}</a></article>
+   <article ng-repeat="category in categories" ui-sref="quote({id:category})"><a >{{category}}</a></article>
 
 </html>

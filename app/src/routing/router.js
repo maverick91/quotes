@@ -9,9 +9,9 @@ app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $url
      templateUrl:'views/home.html',
         controller:'homeCtrl'
   }).state('quote',{
-     url:'/quote',
+     url:'/quote/{id}',
      templateUrl:'views/quote.html',
-        
+     controller:'quoteCtrl'
   });
     
 }]);
