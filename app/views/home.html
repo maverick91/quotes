@@ -1,4 +1,11 @@
 <html>
+  
+  
+    <ul class="nav nav-pills nav-justified">
+      <li><a ui-sref=".login"  >Login</a></li>
+      <li><a ui-sref=".signup">signup</a></li>
+    </ul>
+ <div ui-view></div>
    <h1>Categories</h1>
    <article ng-repeat="category in categories" ui-sref="quote({id:category})"><a >{{category}}</a></article>
 

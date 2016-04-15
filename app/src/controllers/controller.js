@@ -18,7 +18,7 @@ app.controller("homeCtrl",[
         $scope.selectedCategory=function(category) {
          //   alert(category);
          $http.get('/quotes').success(function(data){
-        
+        alert(data.quotes);
            $scope.myquote=data.quote;
          });
          
@@ -45,15 +45,24 @@ app.controller("indexCtrl",['$scope','$interval',function($scope,$interval){
       $httpBackend.whenGET('views/login.html').passThrough();
       $httpBackend.whenGET('views/home.html').passThrough();
       $httpBackend.whenGET('views/quote.html').passThrough();
+        $httpBackend.whenGET('views/signup.html').passThrough();
+        var quotes = [{quote:'aint bout how hard you hit',id:1}];
 
-     $httpBackend.whenGET("/quotes").respond({ quote:'aint bout how hard you hit' });
+     $httpBackend.whenPOST('/quotes').respond(function(method,url,data,header) {
+ 
+    return [200, quotes, {}];
+  });
 
-      var quotes = {quote:'aint bout how hard you hit'};
+   
          
     });
     
     
-  app.controller("quoteCtrl",['$scope','$stateParams',function($scope,$stateParam){
-    
-    alert($stateParam.id);
+  app.controller("quoteCtrl",['$scope','$stateParams','$http',function($scope,$stateParam,$http){
+  
+    $scope.myquote=$stateParam.id;
+    $http.post('/quotes',$scope.myquote).success(function(data){
+      alert(data[0].quote);
+    });
+  
   }]);

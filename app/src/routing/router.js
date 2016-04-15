@@ -1,7 +1,9 @@
+//With this approach, your views and routes aren’t tied down to the site URL. 
+//This way, you can change the parts of your site using your routing even if the URL does not change.
 app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise('/login');
-  $stateProvider.state('login',{
-    url:'/login',
+     
+  $stateProvider.state('home.login',{
+    
     templateUrl:'views/login.html',
     controller:'appController'
   }).state('home',{
@@ -12,12 +14,10 @@ app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $url
      url:'/quote/{id}',
      templateUrl:'views/quote.html',
      controller:'quoteCtrl'
+  }).state('home.signup',{
+
+    templateUrl:'views/signup.html'
   });
     
 }]);
 
-// '$stateProvider', '$urlRouterProvider',[function('$stateProvider', '$urlRouterProvider') {
-//   $urlRouterProvider.otherwise('/login');
-//   $stateProvider.state('login',{url:'/login',
-//     templateUrl:'views/login.html'
-//   });

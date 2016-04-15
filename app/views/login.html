@@ -1,19 +1,25 @@
 
   <body >
-   <form name ="authform" > 
-      username : <input type="email" name="name" ng-model="user.name" required ng-minlength="5"></input> </br> </br>
-      password : <input type="password" ng-model="user.password"></input> </br> </br>
-
- <pre>myForm.myName.$error = {{ authform.name.$error }}</pre>
-      <button ng-click="authenticate(user)">submit</button>
-         <div ng-messages="authform.name.$error" role="alert" ng-if='myForm.myControl.$dirty'>
-         <div ng-message="required">Please enter a value for this field.</div>
-         <div ng-message="minlength">your fiels is too short</div>
-         <div ng-message="email">Enter a valid email address</div>
-</div>
-
-    </form>
+  
+  
+  <div class="container">
+  <form role="form">
     
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-controller"></input>
+  
+    <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-ctrl"></input>
+  </div>
+  
+  <div class="form-group">
+    <button>Submit</button>
+  </form>
+ </div>
+  
  
+ </div>
   </body>
  
