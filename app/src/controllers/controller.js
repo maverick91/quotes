@@ -14,22 +14,18 @@ app.controller("homeCtrl",[
     '$scope','$http','$state',function($scope,$http,$state){
               
            $scope.myquote="data.quote";
-        $scope.categories=["inspirational","love","family","life","war","patriotism"];
-        $scope.selectedCategory=function(category) {
-         //   alert(category);
-         $http.get('/quotes').success(function(data){
-        alert(data.quotes);
-           $scope.myquote=data.quote;
-         });
-         
-        };           
+        $scope.categories=["Videos","Books","Stories","Movies","quotes"];
+        
+        $scope.submitForm=function(isValid){
+          
+          if(isValid){
+            alert("success! "+isValid);
+          }
+        };
     }]);
     
 app.controller("indexCtrl",['$scope','$interval',function($scope,$interval){
-  // var timer = setInterval(function() {
-  //   updateTime();
-  //     $scope.$apply();
-  // }, 1000);
+
   var updateTime=function(){
    $scope.time=new Date();
   };
@@ -58,11 +54,9 @@ app.controller("indexCtrl",['$scope','$interval',function($scope,$interval){
     });
     
     
-  app.controller("quoteCtrl",['$scope','$stateParams','$http',function($scope,$stateParam,$http){
+  app.controller("quoteCtrl",['$scope','$stateParams','$http','callApi',function($scope,$stateParam,$http,callApi){
   
     $scope.myquote=$stateParam.id;
-    $http.post('/quotes',$scope.myquote).success(function(data){
-      alert(data[0].quote);
-    });
+    callApi.call( $scope.myquote);
   
   }]);

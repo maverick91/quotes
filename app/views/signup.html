@@ -4,23 +4,31 @@
   
   
  <div class="container">
-   <form role="form">
+   <form role="form" name="userform">
      <div class="form-group ">
      <div class="row ">
        <label>Name:</label>
-      <input type="text" class="form-control"></input>
+      <input type="text" class="form-control" name="name" ng-model="user.name" placeholder="username" required></input>
+         <p ng-show="userform.name.$invalid && userform.name.$dirty" class="help-block">name required</p>
      </div>
      <div class=" row">
        <label>Email:</label>
-      <input type="email" class="form-control"></input>
+      <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="email" required></input>
+           <p ng-show="userform.email.$invalid && userform.email.$dirty" class="help-block">invalid email.</p>
      </div>
      <div class="row">
        <label>Password:</label>
-      <input type="password" class="form-control"></input>
+      <input type="password" name="password "class="form-control" ng-model="user.password" placeholder="password" required></input>
+      <p ng-show="userform.password.$invalid && userform.password.$dirty" class="help-block">password required</p>
      </div>
      <div class="row">
        <label>Confirm Password:</label>
-      <input type="password" class="form-control"></input>
+      <input type="password" name="repass" class="form-control" ng-model="user.repass" placeholder="confirm password" required></input>
+      <p ng-show="userform.repass.$invalid && userform.repass.$dirty" class="help-block">confirm password</p>
+      <p ng-show="user.password!=user.repass && userform.repass.$dirty">password does not match</p>
+     </div>
+     <div class="row">
+      <button type="button" class="btn btn-primary" ng-disabled="userform.$invalid || user.password!=user.repass  ">Submit</button>
      </div>
    </form> 
  </div>
