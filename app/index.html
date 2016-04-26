@@ -7,11 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      position: relative; 
+  }
+  #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+  #section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+  #section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+  </style>
 </head>
 
-  
+  <body>
 
-  <div ui-view></div>
+  <div class="container" ui-view>
+      
+  </div>
 <script src="scripts/angular.js"></script>
   <script src="scripts/route.js"></script>
   <script src="src/init/init.js"></script>
@@ -20,4 +32,5 @@
   <script src="scripts/angular-messages.js"></script>
   <script src="scripts/angular-ui-router.js"></script>
   <script src="scripts/mocks.js"></script>
+  </body>
 </html>

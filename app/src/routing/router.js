@@ -17,6 +17,12 @@ app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $url
   }).state('home.signup',{
 
     templateUrl:'views/signup.html'
+  }).state('Videos',{
+      url:'/Videos',
+      templateUrl:'views/Videos.html'
+  }).state('Movies',{
+      url:'/Movies',
+      templateUrl:'views/Movies.html'
   });
     
 }]);

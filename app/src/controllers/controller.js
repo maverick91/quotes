@@ -6,6 +6,7 @@ app.controller("appController",['$scope','$http','$state','$rootScope',function(
 
  $scope.authenticate= function(user) {
 
+
 $state.go('home');
     };
 }]);
@@ -37,21 +38,21 @@ app.controller("indexCtrl",['$scope','$interval',function($scope,$interval){
     // no global variable
     // ng-messages validation
     
-    backendMock.run(function($httpBackend){
-      $httpBackend.whenGET('views/login.html').passThrough();
-      $httpBackend.whenGET('views/home.html').passThrough();
-      $httpBackend.whenGET('views/quote.html').passThrough();
-        $httpBackend.whenGET('views/signup.html').passThrough();
-        var quotes = [{quote:'aint bout how hard you hit',id:1}];
+//     backendMock.run(function($httpBackend){
+//       $httpBackend.whenGET('views/login.html').passThrough();
+//       $httpBackend.whenGET('views/home.html').passThrough();
+//       $httpBackend.whenGET('views/quote.html').passThrough();
+//         $httpBackend.whenGET('views/signup.html').passThrough();
+//         var quotes = [{quote:'aint bout how hard you hit',id:1}];
 
-     $httpBackend.whenPOST('/quotes').respond(function(method,url,data,header) {
- 
-    return [200, quotes, {}];
-  });
+//      $httpBackend.whenPOST('/quotes/Videos').respond(function(method,url,data,header) {
+             
+//     return [200, quotes, {}];
+//   });
 
    
          
-    });
+    // });
     
     
   app.controller("quoteCtrl",['$scope','$stateParams','$http','callApi',function($scope,$stateParam,$http,callApi){

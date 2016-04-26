@@ -7,7 +7,7 @@
     </ul>
  <div ui-view></div>
    <h1>Categories</h1>
-   <div ng-repeat="category in categories" ui-sref="quote({id:category})" class="list-group">
+   <div ng-repeat="category in categories" ui-sref="{{category}}" class="list-group">
      <a class="list-group-item well-lg">{{category}}</a>
      </div>
 
